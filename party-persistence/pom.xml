@@ -6,9 +6,15 @@
         <artifactId>party</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    
     <packaging>jar</packaging>
-    <artifactId>party-general-dependency-module</artifactId>
+    <artifactId>party-persistence</artifactId>
 
-    <dependencies></dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+    </dependencies>
 </project>
 

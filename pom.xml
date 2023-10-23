@@ -12,6 +12,7 @@
     <modules>
         <module>party-web-api</module>
         <module>party-general-dependency-module</module>
+        <module>party-persistence</module>
     </modules>
 
     <properties>
@@ -20,16 +21,18 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <kotlin.version>1.9.10</kotlin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <resource.base/>
     </properties>
 
     <profiles>
         <profile>
-            <id>general</id>
+            <id>dev</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <dependency.module>party-general-dependency-module</dependency.module>
+                <resource.base>dev</resource.base>
             </properties>
         </profile>
     </profiles>
@@ -59,8 +62,25 @@
         <dependencies>
             <dependency>
                 <groupId>com.shroomander</groupId>
+                <artifactId>party-persistence</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.shroomander</groupId>
                 <artifactId>party-general-dependency-module</artifactId>
                 <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.shroomander</groupId>
+                <artifactId>${dependency.module}</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <type>pom</type>
+                <version>3.1.4</version>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
